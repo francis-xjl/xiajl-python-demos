@@ -10,6 +10,10 @@
 import pandas
 
 def list_to_dataframe():
+    """
+    将list 转化为dataframe的示例
+    :return:
+    """
     list = [[1,'aa',3],[2,'cc', 4],[4, 'dd', 1],[4, 'ee', -1]]
     # list = [(1, 'aa', 3), (2, 'cc', 4), (4, 'dd', 1), (4, 'ee', -1)]
     indexs = [x for x, y, z in list]
