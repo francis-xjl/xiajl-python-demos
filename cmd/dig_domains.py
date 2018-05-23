@@ -18,14 +18,26 @@ def dig(domain):
     process.close()
     return output
 
-def get_domains_in(domains, keyword):
+def get_domains_in(domains, keyword, reverse=False):
+    """
+    根据域名dig的结果来筛选域名。
+    如果reverse为False，则表示返回dig结果里包含keyword的域名列表
+    如果reverse为True，则表示返回dig结果里不包含keyword的域名列表
+    :param domains:
+    :param keyword:
+    :param reverse:
+    :return:
+    """
     result = []
+    reverse_result = []
     for domain in domains:
         output = dig(domain)
         if keyword in output:
             result.append(domain)
+        else:
+            reverse_result.append(domain)
 
-    return result
+    return result if not reverse else reverse_result
 
 if __name__ == "__main__":
-    print get_domains_in(domains, "hngsa001")
+    print get_domains_in(domains, "hngsa001", reverse=True)
