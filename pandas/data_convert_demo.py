@@ -45,6 +45,16 @@ def read_from_excel():
     return data
 
 
+def add_columns():
+    """
+    增加列，根据原有的行信息进行增加，或者全部默认设置成一个值
+    :return:
+    """
+    df = read_from_excel()
+    df['vi_new_column1'] = df.apply(lambda row: row['vi_areaid'] + 1, axis=1)
+    df['vi_new_column2'] = 1111
+
+
 
 if __name__ == "__main__":
     list_to_dataframe()
